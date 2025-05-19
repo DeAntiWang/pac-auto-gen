@@ -16,17 +16,17 @@ on:
 
 jobs:
   main:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
 
       - uses: actions/setup-python@v5
         with:
-          python-version: "3.9.7"
+          python-version: "3.13.3"
 
       - run: python -m pip install --upgrade pip
       - run: pip install genpac
-      - run: genpac --format pac --user-rule-from ./rules.txt --pac-proxy "SOCKS5 192.168.133.112:7890" > ./pac.txt
+      - run: genpac --format pac --user-rule-from ./rules.txt --pac-proxy "SOCKS5 192.168.133.112:17890" > ./pac.txt
 
       - uses: josStorer/get-current-time@v2
         id: time
